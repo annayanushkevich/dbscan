@@ -1,0 +1,9 @@
+<h1> DB:Scan </h1>
+
+<%= form_tag "/scans/submit", method: :post do%>
+<div>
+<%=label_tag :database_input %>
+<%=text_field_tag :database_input  %> 
+ </div>
+  <%= submit_tag "scan for weaknesses" %>
+  <%end%>
