@@ -7,28 +7,28 @@ class ScansController < ApplicationController
 
   def scan
     database = File.open('../employees-api/db/seeds.json')
-    wordlist = File.open('app/views/scans/wordlist.txt')
+    wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
 
     contents = database.read
-    json = JSON.parse(contents)
+    accounts = JSON.parse(contents)
 
-    weakpass = wordlist.readlines
-    #p datapass
-    #p weakpass
+    weakpass = wordlist.split("\n")
+
+
 
     @matches = []
-
-    json.each do |p|
-      puts p["password"].to_s
+    accounts.each do |account|
+      p account["password"]
+     
       weakpass.each do |pass|
         # puts pass
         # puts @matches
-        if (pass == p["password"].to_s)
+        if (pass == account["password"].to_s)
           puts "Theres a match!"
-          puts p
-          @matches << p
+          puts account
+          @matches << account
         else 
-          @matches << "no match"
+          # @matches << "no match"
         end
       end
     end
@@ -62,9 +62,9 @@ class ScansController < ApplicationController
   #       end
 
 # datapass to array?? file=datapass.split(/\n/) turns into giant array (file.class)
-  def index
+def index
 
-  end
+end
 
 
 
