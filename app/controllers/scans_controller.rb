@@ -31,41 +31,19 @@ class ScansController < ApplicationController
           # @matches << "no match"
         end
       end
-    end
+    
 
 
-  end
+    def encrypt
+      require 'bcrypt'
 
-  # def scan2
-  #   array = []
-  #   f = File.open("../employees-api/db/seeds1.rb", "r")
-  #   f.each_line do |line|
-  #     array << line.eval
-  #   end
-  #   f.close
-  # end
+    database = File.open('../employees-api/db/seeds.json')
+    wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
 
-  # f = File.readlines("../employees-api/db/seeds1.rb").map{ |l| l.chomp }.reject{ |l| l == '' }
+    contents = database.read
+    accounts = JSON.parse(contents)
 
-  # def read
-  #       a=[]
-  #       i=0
-  #           File.open('../employees-api/db/seeds1.rb', 'r') do |f1|  
-  #               while line = f1.gets  
-  #                   line.chomp  
-  #                   ppp= line.split(/\n/)
-  #                   a[i] =ppp[0]
-  #                   i=i+1
-  #               end  
-  #                puts "#{a}"
-  #           end 
-  #       end
-
-# datapass to array?? file=datapass.split(/\n/) turns into giant array (file.class)
-def index
-
-end
+    weakpass = wordlist.split("\n")
 
 
 
-end

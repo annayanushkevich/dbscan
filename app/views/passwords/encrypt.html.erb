@@ -1,0 +1,8 @@
+require 'bcrypt'
+require 'benchmark'
+
+puts "enter password"
+
+puts "encrypted password: #{BCrypt::Password.create(gets.chomp)}"
+
+p
