@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 root 'scans#index'
 get 'scans', to: 'scans#submit'
 get 'scan', to: 'scans#scan'
-
+get 'tricky_scan', to: 'scans#tricky_scan'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

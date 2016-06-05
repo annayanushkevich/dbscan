@@ -19,7 +19,7 @@ class ScansController < ApplicationController
     @matches = []
     accounts.each do |account|
       p account["password"]
-     
+
       weakpass.each do |pass|
         # puts pass
         # puts @matches
@@ -31,11 +31,10 @@ class ScansController < ApplicationController
           # @matches << "no match"
         end
       end
-    
+    end
+  end
 
-
-    def encrypt
-      require 'bcrypt'
+  def tricky_scan
 
     database = File.open('../employees-api/db/seeds.json')
     wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
@@ -45,5 +44,41 @@ class ScansController < ApplicationController
 
     weakpass = wordlist.split("\n")
 
+    userinfo= {}
+    cryptoinfo = {}
+
+    accounts.each do |account|
+      email = account["email"]
+      password = account["password"]
+      userinfo[email] = password
+    end
+    p userinfo
+
+    userinfo.each do |email, password|
+      encryptedpassword= BCrypt::Password.create(password)
+      cryptoinfo[email]= BCrypt::Password.new(encryptedpassword)
+    end
+    p cryptoinfo
 
 
+    def password_match(value)
+      # cryptoinfo.each do |account|
+      # weakpass.each do |pass|
+      #   puts "gooneys"
+      #   p pass
+
+      #   # if (pass == account.values)
+      #     puts "Theres a match!"
+      #     puts cryptoinfo(value)
+          @matches << value
+        # else 
+        #    @matches << "no match"
+        
+        end
+    
+
+
+    @matches = []
+    cryptoinfo.each { |key,value| password_match(value) if value == weakpass }
+  end
+ end
