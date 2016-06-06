@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 root 'scans#index'
-get 'scans', to: 'scans#submit'
-get 'scan', to: 'scans#scan'
-get 'tricky_scan', to: 'scans#tricky_scan'
+get '/scans/submit', to: 'scans#submit'
+get '/scan', to: 'scans#scan'
+get '/tricky_scan', to: 'scans#cryptoscan'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

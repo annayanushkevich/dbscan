@@ -21,20 +21,19 @@ class ScansController < ApplicationController
       p account["password"]
 
       weakpass.each do |pass|
-        # puts pass
-        # puts @matches
+     
         if (pass == account["password"].to_s)
           puts "Theres a match!"
           puts account
           @matches << account
-        else 
-          # @matches << "no match"
+        # else 
+        #    @matches << "no match"
         end
       end
     end
   end
 
-  def tricky_scan
+  def cryptoscan
 
     database = File.open('../employees-api/db/seeds.json')
     wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
@@ -61,24 +60,12 @@ class ScansController < ApplicationController
     p cryptoinfo
 
 
-    def password_match(value)
-      # cryptoinfo.each do |account|
-      # weakpass.each do |pass|
-      #   puts "gooneys"
-      #   p pass
-
-      #   # if (pass == account.values)
-      #     puts "Theres a match!"
-      #     puts cryptoinfo(value)
-          @matches << value
-        # else 
-        #    @matches << "no match"
-        
-        end
-    
-
-
     @matches = []
-    cryptoinfo.each { |key,value| password_match(value) if value == weakpass }
-  end
+      def password_match(value)
+        @matches << value
+      end
+        cryptoinfo.each { |key,value| password_match(value) if weakpass ==(value) }
+
+    end
+
  end
