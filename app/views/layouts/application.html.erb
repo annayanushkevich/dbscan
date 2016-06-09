@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
 <head>
 <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-  <title>Dbscan</title>
+  <title>Db:scan</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -34,17 +33,24 @@ li a:hover:not(.active) {
 .active {
     background-color: #4CAF50;
 }
+
 </style>
+
 </head>
 <body>
 
 <ul>
-  <li><a href="#home">Scan</a></li>
-  <li><a href="#news">passwords</a></li>
-  <li><a href="#contact">contact </a></li>
-  <li style="float:right"><a class="active" href="#about">log in</a></li>
+  <% if current_user %>
+  <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+   <% else %>  
+  <li><%= link_to "Sign In", "/users/sign_in"%></li>
+  <li><%= link_to "Sign Up", "/users/sign_up"%></li>
+  <% end %>
 </ul>
 
+
+
 <%= yield %>
+
 </body>
 </html>

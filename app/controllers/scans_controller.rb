@@ -21,51 +21,78 @@ class ScansController < ApplicationController
       p account["password"]
 
       weakpass.each do |pass|
-     
+
         if (pass == account["password"].to_s)
           puts "Theres a match!"
           puts account
           @matches << account
         # else 
         #    @matches << "no match"
-        end
       end
     end
   end
+end
 
-  def cryptoscan
 
-    database = File.open('../employees-api/db/seeds.json')
-    wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
+def scan_psql
 
-    contents = database.read
-    accounts = JSON.parse(contents)
+  wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
+  weak_passwords = wordlist.split("\n")
 
-    weakpass = wordlist.split("\n")
-
-    userinfo= {}
-    cryptoinfo = {}
-
-    accounts.each do |account|
-      email = account["email"]
-      password = account["password"]
-      userinfo[email] = password
+  matches = []
+  @users = User.all
+  @users.each do |user|
+    bcrypt_instance = BCrypt::Password.new(user.encrypted_password)
+    weak_passwords.each do |easy_password|
+      if bcrypt_instance == easy_password
+        matches << user
+      end
     end
-    p userinfo
+
+  end
+end
+
+def cryptoscan
+
+  database = File.open('../employees-api/db/seeds.json')
+  wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
+
+  contents = database.read
+  accounts = JSON.parse(contents)
+
+  weak_words = wordlist.split("\n")
+
+  userinfo= {}
+  cryptoinfo = {}
+
+  accounts.each do |account|
+    email = account["email"]
+    password = account["password"]
+    userinfo[email] = password
+  end
+    # p userinfo
 
     userinfo.each do |email, password|
-      encryptedpassword= BCrypt::Password.create(password)
-      cryptoinfo[email]= BCrypt::Password.new(encryptedpassword)
+      encryptedpassword = BCrypt::Password.create(password)
+      cryptoinfo[email] = BCrypt::Password.new(encryptedpassword)
     end
-    p cryptoinfo
+    # p cryptoinfo
 
 
     @matches = []
-      def password_match(value)
-        @matches << value
+      # def password_match(value)
+      #   @matches << value
+      #   p @matches
+      # end
+      cryptoinfo.each do |key,value|
+        weak_words.each do |weak_word|
+          if weak_word == value
+            @matches << key
+            p @matches
+          end
+        end
       end
-        cryptoinfo.each { |key,value| password_match(value) if weakpass ==(value) }
 
     end
+  end
 
- end
