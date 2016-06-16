@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
 
+  get 'databases/index'
+
+  get 'databases/import'
+
   devise_for :users
 root 'scans#index'
 get '/scans/submit', to: 'scans#submit'
 get '/scan', to: 'scans#scan'
 get '/tricky_scan', to: 'scans#cryptoscan'
+get '/contact', to: 'scans#contact'
+post '/databases', to: 'databases#submit'
+post '/scans/submit', to: 'scans#hack'
+
+resources :users do
+  collection { post :import }
+end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

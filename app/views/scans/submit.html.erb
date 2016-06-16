@@ -1,9 +1,23 @@
-<h1> DB:Scan </h1>
+<p> </p>
+<h2> < imp0rt database > </h2>
 
-<%= form_tag "/scans/submit", method: :post do%>
+<%= form_tag "/databases", method: :post, multipart: true do %>
+<%=file_field_tag :file  %> 
+<%= submit_tag "scan it!" %>  
+<%end%>
+
 <div>
-<%=label_tag :database_input %>
-<%=text_field_tag :database_input  %> 
- </div>
-  <%= submit_tag "scan for weaknesses" %>
-  <%end%>
+<h4> test a password </h4>
+ 
+<%= form_tag "/scans/submit", method: :post do %>
+<p>
+<%= text_field_tag :hack %>
+<%= submit_tag "how safe is this?"%>
+</p>
+<% end %>
+
+
+ 
+</div>
+
+ 

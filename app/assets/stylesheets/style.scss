@@ -1,0 +1,86 @@
+
+ul {
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 33px;
+    text-decoration: none;
+    font-family: 'Inconsolata', ;
+    font-size: 92.5%;
+    line-height: 1.2;
+    background-color:rgba(96,96,96,0.4);
+    padding: 0.5em 0.5em;
+    margin: 1.5em;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+
+.content {background-color:rgba(48,48,48,0.7);
+padding: 0em 0em;
+margin: 1.9em;
+}
+
+.h1 {background-color:rgba(96,96,96,0.4);
+padding: 0.5em 0.5em;
+margin: 1.5em;
+}
+
+.h2 {background-color:rgba(96,96,96,0.4);
+padding: 0.5em 0.5em;
+margin: 1.5em;
+}
+
+.h3 {background-color:rgba(96,96,96,0.4);
+padding: 0.5em 0.5em;
+margin: 1.5em;
+}
+
+.h4 {background-color:rgba(96,96,96,0.4);
+padding: 0.5em 0.5em;
+margin: 1.5em;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    background: black;
+    color: white;
+    border-radius: .2em;
+    border: #999;
+    margin: 0.5em;
+    padding: 12px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: black;
+    border: #999;
+    margin: 0.5em;
+    padding: 10px 15px;
+}
+

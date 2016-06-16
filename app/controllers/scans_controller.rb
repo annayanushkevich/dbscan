@@ -1,9 +1,33 @@
 class ScansController < ApplicationController
   before_action :authenticate_user!
+  require 'csv'
 
   def submit
     @database_input = params[:database_input]
   end
+
+  def hack
+    password_test = params[:hack]
+    wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
+    weakpass = wordlist.split("\n")
+    matches = []
+
+    weakpass.each do |pass|
+      if pass == password_test
+        matches << password_test
+        print matches
+      elsif pass.include?(password_test)
+        puts "your password has a word in it that is easy to guess"
+        p password_test
+      else
+        puts "your password did not match the 500 worst passwords"
+      end
+    end
+  end
+  # redirect_to "/scans/submit"
+end
+
+
 
   def scan
     database = File.open('../employees-api/db/seeds.json')
@@ -36,6 +60,7 @@ end
 
 def scan_psql
 
+  csv_database = [:file]
   wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
   weak_passwords = wordlist.split("\n")
 
@@ -52,47 +77,50 @@ def scan_psql
   end
 end
 
-def cryptoscan
+# def import
+#   Database.import(params[:file])
+#   redirect_to databases_path, notice: "database imported"
+# end
 
-  database = File.open('../employees-api/db/seeds.json')
-  wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
+# def cryptoscan
 
-  contents = database.read
-  accounts = JSON.parse(contents)
+#   database = File.open('../employees-api/db/seeds.json')
+#   wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
 
-  weak_words = wordlist.split("\n")
+#   contents = database.read
+#   accounts = JSON.parse(contents)
 
-  userinfo= {}
-  cryptoinfo = {}
+#   weak_words = wordlist.split("\n")
 
-  accounts.each do |account|
-    email = account["email"]
-    password = account["password"]
-    userinfo[email] = password
-  end
-    # p userinfo
+#   userinfo= {}
+#   cryptoinfo = {}
 
-    userinfo.each do |email, password|
-      encryptedpassword = BCrypt::Password.create(password)
-      cryptoinfo[email] = BCrypt::Password.new(encryptedpassword)
-    end
-    # p cryptoinfo
+#   accounts.each do |account|
+#     email = account["email"]
+#     password = account["password"]
+#     userinfo[email] = password
+#   end
+#     # p userinfo
+
+#     userinfo.each do |email, password|
+#       encryptedpassword = BCrypt::Password.create(password)
+#       cryptoinfo[email] = BCrypt::Password.new(encryptedpassword)
+#     end
+#     # p cryptoinfo
 
 
-    @matches = []
-      # def password_match(value)
-      #   @matches << value
-      #   p @matches
-      # end
-      cryptoinfo.each do |key,value|
-        weak_words.each do |weak_word|
-          if weak_word == value
-            @matches << key
-            p @matches
-          end
-        end
-      end
-
-    end
-  end
-
+#     @matches = []
+#       # def password_match(value)
+#       #   @matches << value
+#       #   p @matches
+#       # end
+#       cryptoinfo.each do |key,value|
+#         weak_words.each do |weak_word|
+#           if weak_word == value
+#             @matches << key
+#             p @matches
+#           end
+#         end
+#       end
+#     end
+#   end
