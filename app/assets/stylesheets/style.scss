@@ -83,4 +83,36 @@ input, button, select, textarea {
     margin: 0.5em;
     padding: 10px 15px;
 }
+h3, .h3 {
+    font-size: 24px;
+    background-color:rgba(96,96,96,0.4);
+    padding: 0.5em 0.5em;
+    margin: 1.5em 10em;
+}
+h4, .h4 {
+    font-size: 18px;
+    background-color:rgba(96,96,96,0.4);
+    padding: 0.9em 0.9em;
+    margin: 1.5em 7em;
+}
+h1, .h1 {
+    font-size: 36px;
+    background-color:rgba(96,96,96,0.4);
+    padding: 0.5em 0.5em;
+    margin: 1.5em 10em; 
+}
+h2, .h2 {
+    font-size: 30px;
+    background-color:rgba(96,96,96,0.4);
+    padding: 0.9em 0.9em;
+    margin: 1.2em 10.5em;
+}
+
+p {
+    margin: 0 0px;
+    font-size: 12px;
+    background-color:rgba(96,96,96,0.4);
+    padding: 0.9em 0.9em;
+    line-height: inherit;
+}
 

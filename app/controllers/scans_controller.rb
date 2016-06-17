@@ -1,6 +1,7 @@
 class ScansController < ApplicationController
   before_action :authenticate_user!
   require 'csv'
+  require 'benchmark'
 
   def submit
     @database_input = params[:database_input]
@@ -10,12 +11,12 @@ class ScansController < ApplicationController
     password_test = params[:hack]
     wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
     weakpass = wordlist.split("\n")
-    matches = []
+   
 
     weakpass.each do |pass|
       if pass == password_test
-        matches << password_test
-        print matches
+        p password_test
+        
       elsif pass.include?(password_test)
         puts "your password has a word in it that is easy to guess"
         p password_test
