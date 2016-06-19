@@ -8,20 +8,13 @@
 
 <div>
 <h4> test a password </h4>
-<!--  
-<%= form_tag "/scans/submit", method: :post do %>
-<p>
-<%= text_field_tag :hack %>
-<%= submit_tag "how safe is this?"%>
-</p>
-<% end %>
- 
-</div> -->
+
 
 <div ng-app="app">
   <div ng-controller="passwordCtrl">
       test it here: <input ng-model="password">
       <button ng-click="sendPassword(password)"> send password </button>
+      <div>{{passwordMessage}}</div>
 
   <div>
 </div>

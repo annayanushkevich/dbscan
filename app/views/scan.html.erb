@@ -6,19 +6,22 @@
         <h1> < hello. these are the vunerable accounts in your database > </h1>
       </header>
 
-      <footer>
-       <p> scanned in ___ seconds </p>
-      </footer>
+      
 
       <content> 
       <h4 class="info"> <% @matches.each do |m| %>
                             <h4> <%= m.email %> </h4>
                             <h4> <%= m.password %>
+                            <h4> <%= @easy_words_key["id"] %> </h4>
                             </h4>
                               <% end %>
       </content>
 
     </article>
+
+    <footer>
+       <p> scanned in ___ seconds </p>
+      </footer>
     </div>
     </div>
 

@@ -508,3 +508,7 @@ admin12
 admin13
 pas$word
 pa$sword
+purplehippo
+monkey
+piggy
+purpleHippo

@@ -7,25 +7,8 @@ class ScansController < ApplicationController
     @database_input = params[:database_input]
   end
 
-  def hack
-    password_test = params[:hack]
-    wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
-    weakpass = wordlist.split("\n")
-   
 
-    weakpass.each do |pass|
-      if pass == password_test
-        p password_test
-        
-      elsif pass.include?(password_test)
-        puts "your password has a word in it that is easy to guess"
-        p password_test
-      else
-        puts "your password did not match the 500 worst passwords"
-      end
-    end
-  end
-  # redirect_to "/scans/submit"
+
 end
 
 

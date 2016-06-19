@@ -11,7 +11,8 @@ get '/scan', to: 'scans#scan'
 get '/tricky_scan', to: 'scans#cryptoscan'
 get '/contact', to: 'scans#contact'
 post '/databases', to: 'databases#submit'
-post '/scans/submit', to: 'scans#hack'
+get '/scans/submit', to: 'scans#submit'
+post '/api/v1/passwords', to: 'api/v1/passwords#dictionary_test'
 
 resources :users do
   collection { post :import }
