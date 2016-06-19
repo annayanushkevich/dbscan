@@ -7,6 +7,11 @@ class DatabasesController < ApplicationController
 
   def submit  
     # clear users
+    purge = Datum.all
+    purge.each do |data|
+      data.delete
+    end
+
     wordlist = File.open('app/views/scans/wordlist.txt', 'rb').read
     weak_passwords = wordlist.split("\n")
 
@@ -28,7 +33,7 @@ class DatabasesController < ApplicationController
           @matches << user
         end
       end
-      p "."
+      p "..scanning...."
     end
 
     p @matches
