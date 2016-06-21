@@ -2,6 +2,7 @@
 <div class"mainContent">
   <div class="content"
     <article class= "topcontent"> 
+    <div class="strokeme">
       <header>
         <h1> < hello. these are the vunerable accounts in your database > </h1>
       </header>
@@ -11,18 +12,29 @@
       <content> 
       <h4 class="info"> <% @matches.each do |m| %>
                             <h4> <%= m.email %> </h4>
-                            <h4> <%= m.password %>
-                            <h4> <%= @easy_words_key["id"] %> </h4>
+                            <h4> <%= m.password %> </h4>
+                            
                             </h4>
                               <% end %>
       </content>
-
     </article>
+      
+    <h4> fun facts about passwords</h4>
+    <ul>
+      <li>in the last year 2 out of 5 people have had there accounts hacked.</li>
+      <li> 50% of password are over 5 years old </li>
+      <li> 73% of accounts are guarded with duplicate passwords </li>
+      <li> 54% of people use 5 or fewer passwords in there life </li>
+      <li> on average only about 6 passwords are used to guard an average of 24 accounts </li>
+  </ul>
+    
 
     <footer>
        <p> scanned in ___ seconds </p>
       </footer>
+      </div>
     </div>
     </div>
+
 
 

@@ -1,5 +1,5 @@
 require "csv"
-require 'benchmark'
+require 'benchmark/ips'
 
 class DatabasesController < ApplicationController
   # def index
@@ -32,8 +32,9 @@ class DatabasesController < ApplicationController
       weak_passwords.each do |easy_password|
         if bcrypt_instance == easy_password
           @matches << user
-          @easy_words_key["user.id"] = []
-          @easy_words_key["user.id"] << easy_password
+
+           @easy_words_key["user.id"] = []
+           @easy_words_key["user.id"] << easy_password
         end
       end
       p "..scanning...."

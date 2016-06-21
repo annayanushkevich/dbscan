@@ -1,0 +1,3 @@
+"id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","admin"
+1,"kitty@kitty.com","$2a$10$Zpi0hsdh7WdxSOkZ61aN0.cr1d91DBS.VkEYqKxOEqcbD2efuIpj6",,,,3,"2016-05-05 03:02:38.614221","2016-04-27 03:09:03.757964","::1","::1","2016-04-27 03:08:14.391549","2016-05-05 03:02:38.616267",TRUE
+2,"cat@cat.net","$2a$10$fl6J9qvQ5/ogIErY0LFkleGyZeReLLyyWrZDHxVmLKQyl/8wErQTi",,,,1,"2016-05-05 03:01:56.397263","2016-05-05 03:01:56.397263","::1","::1","2016-05-05 03:01:56.387476","2016-05-05 03:01:56.398803",
