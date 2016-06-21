@@ -8,7 +8,6 @@ dragon
 qwerty
 696969
 mustang
-letmein
 baseball
 master
 michael
@@ -500,7 +499,6 @@ billy
 albert
 1a2b3c4d
 a1b2c3d4
-password
 letmein
 nopass
 admin

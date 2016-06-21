@@ -4,21 +4,25 @@
     <article class= "topcontent"> 
     <div class="strokeme">
       <header>
-        <h1> < hello. these are the vunerable accounts in your database > </h1>
+        <h1> < hello...  these are the vunerable accounts in your database: > </h1>
       </header>
 
       
 
       <content> 
-      <h4 class="info"> <% @matches.each do |m| %>
-                            <h4> <%= m.email %> </h4>
-                            <h4> <%= m.password %> </h4>
-                            
-                            </h4>
-                              <% end %>
+      <h4 class="info">
+        <% @matches.each do |m| %>
+            <h4> user email: <%= m.email %> </h4>
+            <h4> encrypted passw0rd: <%= m.password %> </h4>
+            <% if @easy_words_key[m.id] %>
+              <h4> unencrypted passw0rd: <%= @easy_words_key[m.id] %></h4>
+            <% end %>
+        <% end %>
+        t0tal matches: <%= @matches.length %>
+      </h4>
       </content>
     </article>
-      
+
     <h4> fun facts about passwords</h4>
     <ul>
       <li>in the last year 2 out of 5 people have had there accounts hacked.</li>

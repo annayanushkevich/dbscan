@@ -10,7 +10,7 @@ class Api::V1::PasswordsController < ApplicationController
     message = nil
     weakpass.each do |pass|
       if pass == password_test
-        message = "your password was: #{password_test}. it is "
+        message = "your password was: #{password_test}. it matched one of the 500 most vunerable passwords."
       #   break
       # else pass.include?(password_test)
       #   message = "your password has a word in it that is easy to guess: #{password_test} "
