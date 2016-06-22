@@ -215,13 +215,13 @@ h4, .h4 {
 .time {
     margin-top: 1em;
     text-decoration: none;
-    font-size: 16px;
-    line-height: 1.5;
-    line-height: 1.5;
-    margin: -2.2em 20em;
-    background-color: rgba(0, 0, 0, 0.62);
-    border-radius: 1px;
+    font-size: 20px;
+    line-height: 0.8;
     text-align: center;
+    background-color: rgba(104, 117, 111, 0.74);
+    border-radius: 23px;
+    padding: 0.4em 1.2em;
+    margin: 0.1em 16.5em;
 }
 
 .tips-t {
@@ -239,15 +239,17 @@ h4, .h4 {
 
 .facts {
     list-style-type: none;
-    margin: 23px 10em;
-    padding: 6px;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.62);
-    border-radius: 1px;
+    background-color: rgba(0, 0, 0, 0.67);
+    border-radius: 11px;
     text-decoration: none;
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
+    padding: 0.7em 0.6em;
+    margin: 0.3em 11.5em;
+
+
 }
 
 p.intro {

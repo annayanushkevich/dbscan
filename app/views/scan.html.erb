@@ -2,7 +2,7 @@
 
 <div class="strokeme">
   <header>
-    <h2> < these are the vunerable acc0unts in your database: > </h2>
+    <h2> { these are the vunerable acc0unts in your database: } </h2>
   </header>
 
   <h4 class="info">
@@ -13,6 +13,10 @@
     <h4 class= "result"> unencrypted passw0rd: <%= @easy_words_key[m.id] %></h4>
     <% end %>
     <% end %>
+
+    <div> 
+    </div>
+
     <p class = "time">> t0tal matches: <%= @matches.length %> <p>
     </h4>
     <div>
@@ -20,9 +24,9 @@
        <p class = "time"> <%= "scanned in #{@time} seconds" %></p>
 
      </div>
-     <center><h2> _fun facts about passwords_ </h2></center>
+     <center><h2> _passw0rd fun facts_ </h2></center>
 
-     <p class ="facts">in the last year 2 out of 5 people have had there accounts hacked.</p>
+     <p class ="facts">in the last year, 2 out of 5 people have had there accounts hacked.</p>
      <p class ="facts"> 50% of password are over 5 years old </p>
      <p class ="facts"> 73% of accounts are guarded with duplicate passwords </p>
      <p class ="facts"> 54% of people use 5 or fewer passwords in there life </p>
