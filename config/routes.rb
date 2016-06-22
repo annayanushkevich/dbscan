@@ -13,6 +13,7 @@ get '/contact', to: 'scans#contact'
 post '/databases', to: 'databases#submit'
 get '/scans/submit', to: 'scans#submit'
 post '/api/v1/passwords', to: 'api/v1/passwords#dictionary_test'
+get '/scans/tips', to: 'scans#tips'
 
 resources :users do
   collection { post :import }

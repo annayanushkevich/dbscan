@@ -27,15 +27,17 @@ class DatabasesController < ApplicationController
     @matches = []
     @easy_words_key = {}
     @users = Datum.all
-    @users.each do |user|
-      bcrypt_instance = BCrypt::Password.new(user.password)
-      weak_passwords.each do |easy_password|
-        if bcrypt_instance == easy_password
-          @matches << user
-          @easy_words_key[user.id] = easy_password
+    @time = Benchmark.realtime do
+      @users.each do |user|
+        bcrypt_instance = BCrypt::Password.new(user.password)
+        weak_passwords.each do |easy_password|
+          if bcrypt_instance == easy_password
+            @matches << user
+            @easy_words_key[user.id] = easy_password
+          end
         end
+        p "..scanning...."
       end
-      p "..scanning...."
     end
 
     p @matches

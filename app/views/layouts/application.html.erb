@@ -17,17 +17,17 @@
 </head>
 <body>
 
-  <header class="mainheader" >
-    <nav><ul>
-      <li><a href="/"> h0me</a></li>
-      <li><a href="/contact"> c0ntact</a></li>
-      <li><a href="/scans/submit"> scan my database </a></li>
+  <header class= "mainheader" >
+    <nav><ul class= "navbar">
+      <li class= "navcube"><a href="/"> h0me</a></li>
+      <li class= "navcube"><a href="/contact"> c0ntact</a></li>
+      <li class= "navcube"><a href="/scans/submit"> scan my database </a></li>
     
       <% if current_user %>
-  <li><%= link_to "sign 0ut", "/users/sign_out", method: :delete %></li>
+  <li class= "navcube"><%= link_to "sign 0ut", "/users/sign_out", method: :delete %></li>
    <% else %>  
-  <li><%= link_to "sign In", "/users/sign_in"%></li>
-  <li><%= link_to "sign Up", "/users/sign_up"%></li>
+  <li class= "navcube"><%= link_to "sign In", "/users/sign_in"%></li>
+  <li class= "navcube"><%= link_to "sign Up", "/users/sign_up"%></li>
   <% end %>
 </ul></nav>
 </header>
